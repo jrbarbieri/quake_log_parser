@@ -42,5 +42,9 @@ module QuakeLogParser
         }
       }
     end
+
+    def generate_ranking
+      @ranking = @kills.sort_by { -_2 }.to_h
+    end
   end
 end

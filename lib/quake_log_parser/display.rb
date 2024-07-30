@@ -39,6 +39,8 @@ module QuakeLogParser
           t.add_row [{ value: "No data available for this match.", colspan: 3, alignment: :center }]
         else
           add_ranking_rows(t, game.ranking)
+          t << :separator
+          t.add_row [{ value: "Total kills: #{game.total_kills}", colspan: 3, alignment: :center }]
         end
       end
     end

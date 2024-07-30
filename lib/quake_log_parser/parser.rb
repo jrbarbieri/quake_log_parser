@@ -32,7 +32,7 @@ module QuakeLogParser
         end
       end
 
-      @games.each { |game| game.ranking = generate_ranking(game.kills) }
+      @games.each(&:generate_ranking)
     end
 
     def valid_line?(line)
@@ -70,10 +70,6 @@ module QuakeLogParser
 
     def update_means_of_death(log_entry, game)
       game.means_of_death[log_entry.mod] += 1
-    end
-
-    def generate_ranking(kills)
-      kills.sort_by { -_2 }.to_h
     end
   end
 end
