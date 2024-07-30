@@ -6,7 +6,7 @@ Gem::Specification.new do |spec|
   spec.name = "quake_log_parser"
   spec.version = QuakeLogParser::VERSION
   spec.authors = ["Joao Barbieri"]
-  spec.email = ["j.rafaeel@hotmail.com"]
+  spec.email = ["j.rafaeel92@gmail.com"]
 
   spec.summary = "A gem for parsing Quake log files and outputting game statistics in JSON format."
   spec.description = "The QuakeLogParser gem provides a command-line tool to parse Quake log files, extracting game statistics such as total kills and individual player kills, and outputting the results in JSON format. It is designed to help analyze game logs quickly and efficiently."
