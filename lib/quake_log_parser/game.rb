@@ -25,7 +25,7 @@ module QuakeLogParser
       }
     end
 
-    def summary_to_h
+    def summary
       {
         name => {
           total_kills: @total_kills,
@@ -35,7 +35,7 @@ module QuakeLogParser
       }
     end
 
-    def death_causes_to_h
+    def death_causes
       {
         name => {
           kills_by_means: @means_of_death

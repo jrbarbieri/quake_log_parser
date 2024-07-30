@@ -73,7 +73,7 @@ module QuakeLogParser
     end
 
     def generate_ranking(kills)
-      kills.sort_by { |_, v| -v }.to_h
+      kills.sort_by { -_2 }.to_h
     end
   end
 end

@@ -14,17 +14,15 @@ module QuakeLogParser
     end
 
     def display_game_summary
-      pretty_print_json(@games.map(&:summary_to_h))
+      pretty_print_json(@games.map(&:summary))
     end
 
     def display_death_causes
-      pretty_print_json(@games.map(&:death_causes_to_h))
+      pretty_print_json(@games.map(&:death_causes))
     end
 
     def display_ranking
-      @games.each do |game|
-        puts game.name.gsub("_", " ").capitalize, create_ranking_table(game), "\n"
-      end
+      @games.each { puts _1.name.gsub("_", " ").capitalize, create_ranking_table(_1), "\n" }
     end
 
     private
@@ -46,9 +44,7 @@ module QuakeLogParser
     end
 
     def add_ranking_rows(table, ranking)
-      ranking.each_with_index do |(player, kills), index|
-        table << ["##{index + 1}", player, kills]
-      end
+      ranking.each_with_index { |(player, kills), index| table << ["##{index + 1}", player, kills] }
     end
   end
 end
