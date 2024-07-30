@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "terminal-table"
+require "json"
 
 module QuakeLogParser
   class Display
