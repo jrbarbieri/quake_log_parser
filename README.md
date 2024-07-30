@@ -1,31 +1,16 @@
-# QuakeLogParser
+## Introduction
 
-TODO: Delete this and the text below, and describe your gem
+This solution was created to parse log files from the game Quake.
+The solution is implemented using the Ruby programming language and is structured as a Gem to build the script.
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/quake_log_parser`. To experiment with that code, run `bin/console` for an interactive prompt.
+## How It Works
 
-## Installation
+1. Clone this repository
+2. Navigate to the directory using `cd quake_log_parser`
+3. Run the command `bin/quake-log-parser <file_path> [--death-causes | --ranking | --summary]` to perform the desired operation. The available options are:
+   a. `--summary`: returns a JSON with a summary presenting the total deaths of the match, the players involved, and the match score;
+   b. `--ranking`: displays a ranking of kills per player across all matches in the log;  
+   c. `--death-causes`: returns a JSON with the summary of the types of deaths of the players per match;
+   d. **_no options_**: returns a JSON with the total deaths, all players, kill/player balance, means of death, and ranking for each match.
 
-TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
-
-Install the gem and add to the application's Gemfile by executing:
-
-    $ bundle add UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG
-
-If bundler is not being used to manage dependencies, install the gem by executing:
-
-    $ gem install UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG
-
-## Usage
-
-TODO: Write usage instructions here
-
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
-
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/quake_log_parser.
+**Note**: The repository already contains an example log file named `log_example.txt`, so you can run the command `bin/quake-log-parser **log_example.txt** [--death-causes | --ranking | --summary]` if you want to test it.
