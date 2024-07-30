@@ -10,5 +10,6 @@ gem "terminal-table"
 
 group :development do
   gem "pry"
+  gem "rspec"
   gem "rubocop", "~> 1.21"
 end
