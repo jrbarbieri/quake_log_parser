@@ -1,31 +1,28 @@
-# QuakeLogParser
+## Introduction
 
-TODO: Delete this and the text below, and describe your gem
+This solution was created to parse log files from the game Quake.
+The solution is implemented using the Ruby programming language and is structured as a Gem to build the script.
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/quake_log_parser`. To experiment with that code, run `bin/console` for an interactive prompt.
+## How It Works
 
-## Installation
+1. Clone this repository
+2. Navigate to the directory using `cd quake_log_parser`
+3. Run the command `bin/quake-log-parser <file_path> [--death-causes | --ranking | --summary]` to perform the desired operation. The available options are:
+   a. `--summary`: returns a JSON with a summary presenting the total deaths of the match, the players involved, and the match score;
+   b. `--ranking`: displays a ranking of kills per player across all matches in the log;  
+   c. `--death-causes`: returns a JSON with the summary of the types of deaths of the players per match;
+   d. **_no options_**: returns a JSON with the total deaths, all players, kill/player balance, means of death, and ranking for each match.
 
-TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
+**Note**: The repository already contains an example log file named `log_example.txt`, so you can run the command `bin/quake-log-parser **log_example.txt** [--death-causes | --ranking | --summary]` if you want to test it.
 
-Install the gem and add to the application's Gemfile by executing:
+## How It Works
 
-    $ bundle add UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG
+When executing `bin/quake-log-parser`, the log file is sent to the `Parser` object, which in turn will create a collection of `Game` objects using the `LogEntry` object to read the relevant logs from the input file, then assigning the `Display` object the responsibility of presenting these data.
 
-If bundler is not being used to manage dependencies, install the gem by executing:
+The `Game` object represents a match in the context of a Quake log parser. This object stores information about the match, including the name, total number of deaths, players involved, means of death, and a ranking. It facilitates the storage and manipulation of match data, allowing for the extraction of summaries and specific statistics.
 
-    $ gem install UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG
+The `LogEntry` object represents a log entry in the context of a Quake log parser. This object stores information about a death event (kill) in the game, including the killer, the victim, and the means of death. It facilitates the analysis and extraction of specific information about death events in Quake logs, allowing for the creation of organized data structures for further processing.
 
-## Usage
+The `Parser` object is responsible for parsing Quake match log files, extracting and processing game events such as match starts and death events. This object facilitates the structured and detailed analysis of Quake game logs, enabling the extraction of statistics and the generation of rankings based on game events.
 
-TODO: Write usage instructions here
-
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
-
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/quake_log_parser.
+The `Display` object is responsible for displaying Quake game data in an organized and readable manner, using JSON formats and tables in the terminal. It facilitates the organized and detailed visualization of Quake match data, allowing for clear and structured analysis of game statistics.
