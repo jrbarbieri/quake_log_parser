@@ -1,0 +1,28 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require "bundler/setup"
+require "quake_log_parser"
+require "pry"
+
+if ARGV.empty?
+  puts "Usage: bin/quake-log-parser <file_path> [--death-causes | --ranking | --summary]"
+  exit 1
+end
+
+file_path = ARGV[0]
+option = ARGV[1]
+
+parser = QuakeLogParser::Parser.call(file_path)
+display = QuakeLogParser::Display.new(parser)
+
+case option
+when "--death-causes"
+  display.display_death_causes
+when "--ranking"
+  display.display_ranking
+when "--summary"
+  display.display_game_summary
+else
+  display.display_data
+end
