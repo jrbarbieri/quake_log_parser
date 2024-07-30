@@ -20,3 +20,6 @@ Layout/LineLength:
 
 Metrics/MethodLength:
   Max: 15
+
+Metrics/BlockLength:
+  AllowedMethods: ["describe", "context", "let"]
